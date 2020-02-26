@@ -18,7 +18,7 @@
 <div class="container h-9 extra-margin-top">
     <div class="row mb-2">
         <div class="col">
-            <h5 class="font-weight-light">Choose an non-profit organization to make your donation</h5>
+            <h5 class="font-weight-light">Choose a person to make your investment</h5>
         </div>
     </div>
     <div class="row">
@@ -32,9 +32,9 @@
                     </div>
                     <div>
                         <h5 class="m-0 font-weight-normal">{{ngo.ngo_name}}</h5>
-                        <p class="m-0 mt-1">Total donations: {{ngo.ngo_donations | currency:'USD':'symbol':'1.2-2'}}
+                        <p class="m-0 mt-1">Total investments: {{ngo.ngo_donations | currency:'USD':'symbol':'1.2-2'}}
                             USD</p>
-                        <p class="m-0 mt-1">My donation: {{ngo.ngo_user_donations | currency:'USD':'symbol':'1.2-2'}}
+                        <p class="m-0 mt-1">My investment: {{ngo.ngo_user_donations | currency:'USD':'symbol':'1.2-2'}}
                             USD</p>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                         <div>
                             <ul class="d-inline-flex list-unstyled border rounded">
                                 <li class="d-flex flex-column justify-content-center align-items-center p-1 text-nowrap pl-2 pr-2">
-                                    <span>Total Donations</span><span><strong>{{selectedNGO.ngo_donations |
+                                    <span>Total Investments</span><span><strong>{{selectedNGO.ngo_donations |
                                             currency:'USD':'symbol':'1.2-2'}}</strong></span>
                                 </li>
                                 <li class="d-flex flex-column justify-content-center align-items-center p-1 text-nowrap pl-2 pr-2 border-left border-right bg-gray-200">
@@ -71,7 +71,7 @@
                                             {{selectedNGO.ngo_fund_utilized | currency:'USD':'symbol':'1.2-2'}}</a></span>
                                 </li>
                                 <li class="d-flex flex-column justify-content-center align-items-center p-1 text-nowrap pl-2 pr-2 bg-light">
-                                    <span>My donations</span><span>{{selectedNGO.ngo_user_donations |
+                                    <span>My Investments</span><span>{{selectedNGO.ngo_user_donations |
                                         currency:'USD':'symbol':'1.2-2'}}</span>
                                 </li>
                             </ul>
@@ -82,7 +82,7 @@
                                     <span>Total Projects</span><span><strong>{{selectedNGO.ngo_projects}}</strong></span>
                                 </li>
                                 <li class="d-flex flex-column justify-content-center border-left align-items-center p-1 text-nowrap pl-2 pr-2">
-                                    <span>Total no.of donors</span><span><a href="#" data-toggle="modal" data-target="#donors">{{selectedNGO.ngo_Donors}}</a></span>
+                                    <span>Total no.of investors</span><span><a href="#" data-toggle="modal" data-target="#donors">{{selectedNGO.ngo_Donors}}</a></span>
                                 </li>
                             </ul>
                         </div>
@@ -105,11 +105,11 @@
                                         placeholder="$ 150.00">
                                     <div *ngIf="submitted && donation.donationAmount.errors" class="invalid-feedback"
                                         [ngClass]="{ 'is-invalid': submitted && donation.donationAmount.errors}">
-                                        <div *ngIf="donation.donationAmount.errors.required">Donatoion amount is
+                                        <div *ngIf="donation.donationAmount.errors.required">Investment amount is
                                             required</div>
                                     </div>
                                     <a class="btn btn-warning ml-2 text-white" (click)='onDonate()' role="button">
-                                        Donate<i *ngIf="loading" class='fa fa-circle-o-notch fa-spin ml-2 '> </i>
+                                        Invest<i *ngIf="loading" class='fa fa-circle-o-notch fa-spin ml-2 '> </i>
                                     </a>
                                 </div>
                             </form>
@@ -165,7 +165,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header border-0 pt-2 pb-2">
-                <h4 class="modal-title text-center">Donor's contribution </h4>
+                <h4 class="modal-title text-center">Investor's contribution </h4>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-toggle="modal"
                     data-target="#funds-utilized">
@@ -186,7 +186,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header border-0 pb-0">
-                <h4 class="modal-title">Donors list</h4>
+                <h4 class="modal-title">Investors list</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -197,7 +197,7 @@
                         <thead class="bg-dark text-white">
                             <tr>
                                 <th class="font-weight-normal pl-4">#</th>
-                                <th class="font-weight-normal">Donor name</th>
+                                <th class="font-weight-normal">Investor name</th>
                                 <th class="text-right font-weight-normal  pr-4">Amount</th>
                             </tr>
                         </thead>

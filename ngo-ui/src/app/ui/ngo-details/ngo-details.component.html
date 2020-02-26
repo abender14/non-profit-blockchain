@@ -18,7 +18,7 @@
 <div class="container extra-margin-top">
   <div class="row mb-2">
     <div class="col">
-      <h5 class="font-weight-light">NGO Details</h5>
+      <h5 class="font-weight-light">Borrower Details</h5>
     </div>
   </div>
   <div class="row">
@@ -41,7 +41,7 @@
             <div>
               <ul class="d-inline-flex list-unstyled border rounded">
                 <li class="d-flex flex-column justify-content-center align-items-center p-1 text-nowrap pl-3 pr-3">
-                  <span>Total Donations</span>
+                  <span>Total Investments</span>
                   <span><strong> {{selectedNGO.ngo_donations | currency:'USD':'symbol':'1.2-2'}}</strong></span>
                 </li>
                 <li class="d-flex flex-column justify-content-center align-items-center p-1 text-nowrap pl-3 pr-3 border-left border-right bg-gray-200">
@@ -49,7 +49,7 @@
                       | currency:'USD':'symbol':'1.2-2'}}</a></span>
                 </li>
                 <li class="d-flex flex-column justify-content-center align-items-center p-1 text-nowrap pl-3 pr-3 bg-light">
-                  <span>My donations</span><span> {{selectedNGO.ngo_user_donations | currency:'USD':'symbol':'1.2-2'}}</span>
+                  <span>My Investments</span><span> {{selectedNGO.ngo_user_donations | currency:'USD':'symbol':'1.2-2'}}</span>
                 </li>
               </ul>
             </div>
@@ -59,7 +59,7 @@
                   <span>Total Projects</span><span><strong>{{selectedNGO.ngo_projects}}</strong></span>
                 </li>
                 <li class="d-flex flex-column justify-content-center border-left align-items-center p-1 text-nowrap pl-2 pr-2">
-                  <span>Total no. of donors</span><span><a href="#" data-toggle="modal" data-target="#donors">{{selectedNGO.ngo_Donors}}</a></span>
+                  <span>Total no. of investors</span><span><a href="#" data-toggle="modal" data-target="#donors">{{selectedNGO.ngo_Donors}}</a></span>
                 </li>
               </ul>
             </div>
@@ -114,11 +114,11 @@
                   <input class="form-control font-size-1rem w-50" type="number" formControlName="donationAmount"
                     placeholder="$ 150.00">
                   <div *ngIf="submitted && donation.donationAmount.errors" class="invalid-feedback" [ngClass]="{ 'is-invalid': submitted && donation.donationAmount.errors}">
-                    <div *ngIf="donation.donationAmount.errors.required">Donation amount is required</div>
+                    <div *ngIf="donation.donationAmount.errors.required">Investment amount is required</div>
                   </div>
                   <a class="btn btn-warning ml-2 text-white" (click)='makeDonation()' role="button">
                     <i *ngIf="loading" class='fa fa-circle-o-notch fa-spin'> </i>
-                    Donate</a>
+                    Invest</a>
                 </div>
               </form>
             </div>
@@ -170,7 +170,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header border-0 pt-2 pb-2">
-        <h4 class="modal-title text-center">Donor's contribution </h4>
+        <h4 class="modal-title text-center">Investor's contribution </h4>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#funds-utilized">
           <span aria-hidden="true">×</span>
@@ -189,7 +189,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header pb-2">
-        <h4 class="modal-title">Donors list</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+        <h4 class="modal-title">Investors list</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
             aria-hidden="true">×</span></button>
       </div>
       <div class="modal-body overflow-y-auto max-height-200 p-0">
@@ -198,7 +198,7 @@
             <thead class="bg-dark text-white">
               <tr>
                 <th class="font-weight-normal pl-4">#</th>
-                <th class="font-weight-normal">Donor name</th>
+                <th class="font-weight-normal">Investor name</th>
                 <th class="text-right font-weight-normal pr-4">Amount</th>
               </tr>
             </thead>
